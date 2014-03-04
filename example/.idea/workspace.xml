@@ -81,7 +81,7 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="11" selection-start="1206" selection-end="1206" vertical-scroll-proportion="0.625" vertical-offset="0" max-vertical-offset="552">
+            <state line="21" column="50" selection-start="975" selection-end="1175" vertical-scroll-proportion="0.33510637" vertical-offset="0" max-vertical-offset="940">
               <folding />
             </state>
           </provider>
@@ -90,7 +90,7 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../ASWhitelabelActivity/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="11" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+            <state line="6" column="11" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="180">
               <folding />
             </state>
           </provider>
@@ -99,7 +99,7 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="724" selection-end="724" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+            <state line="21" column="35" selection-start="608" selection-end="608" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,13 +110,8 @@
       <file leaf-file-name="ASWhitelabelActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../ASWhitelabelActivity/src/com/airservice/whitelabel/ASWhitelabelActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="44" selection-start="2024" selection-end="2044" vertical-scroll-proportion="0.0" vertical-offset="341" max-vertical-offset="2295">
-              <folding>
-                <element signature="e#2814#3074#0" expanded="true" />
-                <element signature="e#3063#3064#0" expanded="true" />
-                <element signature="e#3964#4179#0" expanded="true" />
-                <element signature="e#4160#4161#0" expanded="true" />
-              </folding>
+            <state line="39" column="69" selection-start="1220" selection-end="1266" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2160">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,10 +119,8 @@
       <file leaf-file-name="Activity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../../adt-bundle-mac-x86_64-20131030/sdk/sources/android-16/android/app/Activity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="76650">
-              <folding>
-                <element signature="e#0#217880#0" expanded="true" />
-              </folding>
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="78090">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -159,7 +152,7 @@
       <file leaf-file-name="project.properties" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="615" selection-end="615" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+            <state line="14" column="0" selection-start="563" selection-end="614" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
               <folding />
             </state>
           </provider>
@@ -177,9 +170,9 @@
       <list>
         <option value="$PROJECT_DIR$/project.properties" />
         <option value="$PROJECT_DIR$/res/layout/main.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/MainActivity.java" />
         <option value="$PROJECT_DIR$/../ASWhitelabelActivity/src/com/airservice/whitelabel/WhitelabelActivity.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -187,6 +180,7 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="1921" />
     <option name="y" value="22" />
     <option name="width" value="1920" />
     <option name="height" value="1058" />
@@ -218,7 +212,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -353,6 +346,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -409,6 +403,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -434,19 +441,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -558,7 +552,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1058" extended-state="6" />
+    <frame x="1921" y="22" width="1920" height="1058" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -566,14 +560,12 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39958593" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24920128" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3285124" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -584,8 +576,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3285124" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -610,27 +604,73 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../ASWhitelabelActivity/project.properties">
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="940">
+        <state line="23" column="11" selection-start="1206" selection-end="1206" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="435">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project.properties">
+    <entry file="file://$PROJECT_DIR$/../ASWhitelabelActivity/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="615" selection-end="615" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="315">
+        <state line="6" column="11" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="180">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="724" selection-end="724" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+        <state line="25" column="0" selection-start="724" selection-end="724" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="465">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ASWhitelabelActivity/src/com/airservice/whitelabel/ASWhitelabelActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="44" selection-start="2024" selection-end="2044" vertical-scroll-proportion="0.0" vertical-offset="975" max-vertical-offset="2430">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../adt-bundle-mac-x86_64-20131030/sdk/sources/android-16/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="78090">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ASWhitelabelActivity/res/layout/com_airservice_whitelabel_activity_layout.xml">
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+      <provider editor-type-id="text-editor">
+        <state line="5" column="9" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="285">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="615" selection-end="615" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ASWhitelabelActivity/project.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="940" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
@@ -655,36 +695,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../adt-bundle-mac-x86_64-20131030/sdk/sources/android-16/com/android/internal/os/ZygoteInit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="779" column="0" selection-start="26496" selection-end="26496" vertical-scroll-proportion="0.3327032" vertical-offset="10909" max-vertical-offset="11490">
-          <folding />
-        </state>
+        <state line="779" column="0" selection-start="26496" selection-end="26496" vertical-scroll-proportion="0.3327032" vertical-offset="10909" max-vertical-offset="11490" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../adt-bundle-mac-x86_64-20131030/sdk/sources/android-16/android/app/ActivityThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2173" column="0" selection-start="91011" selection-end="91011" vertical-scroll-proportion="0.33333334" vertical-offset="30596" max-vertical-offset="69450">
-          <folding />
-        </state>
+        <state line="2173" column="0" selection-start="91011" selection-end="91011" vertical-scroll-proportion="0.33333334" vertical-offset="30596" max-vertical-offset="69450" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../adt-bundle-mac-x86_64-20131030/sdk/sources/android-16/android/app/Activity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="76440">
-          <folding>
-            <element signature="e#0#217880#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ASWhitelabelActivity/src/com/airservice/whitelabel/ASWhitelabelActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="44" selection-start="2024" selection-end="2044" vertical-scroll-proportion="0.0" vertical-offset="341" max-vertical-offset="2295">
-          <folding>
-            <element signature="e#2814#3074#0" expanded="true" />
-            <element signature="e#3063#3064#0" expanded="true" />
-            <element signature="e#3964#4179#0" expanded="true" />
-            <element signature="e#4160#4161#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -695,9 +717,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="35" selection-start="608" selection-end="608" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ASWhitelabelActivity/src/com/airservice/whitelabel/ASWhitelabelActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="69" selection-start="1220" selection-end="1266" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2160">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="563" selection-end="614" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="11" selection-start="1206" selection-end="1206" vertical-scroll-proportion="0.625" vertical-offset="0" max-vertical-offset="552">
+        <state line="21" column="50" selection-start="975" selection-end="1175" vertical-scroll-proportion="0.33510637" vertical-offset="0" max-vertical-offset="940">
           <folding />
         </state>
       </provider>
