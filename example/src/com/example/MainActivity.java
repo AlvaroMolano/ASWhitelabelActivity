@@ -19,7 +19,7 @@ public class MainActivity extends Activity {
     public void startOrdering(View v)
     {
         Intent intent = new Intent(this, ASWhitelabelActivity.class);
-        ASWhitelabelActivity.populateParameters(intent, 1, ASWhitelabelActivity.ASEnvironment.ASEnvironmentQA);
+        ASWhitelabelActivity.populateParameters(intent, 1);
         startActivity(intent);
     }
 }
