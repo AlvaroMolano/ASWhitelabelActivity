@@ -131,8 +131,8 @@ public class ASWhitelabelActivity extends Activity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack())
+        {
             webView.goBack();
 
             return true;
