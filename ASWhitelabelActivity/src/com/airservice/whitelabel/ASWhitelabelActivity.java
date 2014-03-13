@@ -3,25 +3,20 @@ package com.airservice.whitelabel;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.webkit.*;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+
 public class ASWhitelabelActivity extends Activity {
-
-    public enum ASEnvironment
-    {
-        ASEnvironmentQA,
-        ASEnvironmentStaging,
-        ASEnvironmentProduction
-    }
-
-    public final static String AS_EXTRA_ENVIRONMENT = "environment";
-    public final static String AS_EXTRA_VENUE_ID = "venue_id";
 
     private final static String ASWhitelabelUrlQA = "https://qa.whitelabel.airservice.com";
     private final static String ASWhitelabelUrlStaging = "https://staging.whitelabel.airservice.com";
@@ -30,25 +25,13 @@ public class ASWhitelabelActivity extends Activity {
     private final static String TAG = "ASWhitelabelActivity";
 
     WebView webView;
-    private ASEnvironment environment = ASEnvironment.ASEnvironmentProduction;
-    private int venueID = 0;
 
+    private ASOptions asOptions;
 
-    /*
-     * Optional helper methods for settings the parameters instead of manually setting the extras
-     */
-    public static void populateParameters(Intent intent, int venueID)
+    public void setOptions(ASOptions options)
     {
-        populateParameters(intent, venueID, ASEnvironment.ASEnvironmentProduction);
+        this.asOptions = options;
     }
-
-    public static void populateParameters(Intent intent, int venueID, ASEnvironment environment)
-    {
-        intent.putExtra(AS_EXTRA_VENUE_ID, venueID);
-        intent.putExtra(AS_EXTRA_ENVIRONMENT, environment);
-    }
-
-
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,77 +39,59 @@ public class ASWhitelabelActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.com_airservice_whitelabel_activity_layout);
 
-        if(getIntent().hasExtra(AS_EXTRA_VENUE_ID))
-        {
-            venueID = getIntent().getIntExtra(AS_EXTRA_VENUE_ID, -1);
-        }
+        validateOptions();
 
-        if (venueID > 0)
-        {
-            if(getIntent().hasExtra(AS_EXTRA_ENVIRONMENT))
-            {
-                environment = (ASEnvironment)getIntent().getSerializableExtra(AS_EXTRA_ENVIRONMENT);
+        webView = (WebView)findViewById(R.id.whitelabelWebview);
+        webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setGeolocationEnabled(true);
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+
+        webView.setWebChromeClient(new WebChromeClient() {
+            public void onGeolocationPermissionsShowPrompt(
+                    String origin,
+                    GeolocationPermissions.Callback callback) {
+                callback.invoke(origin, true, false);
+            }
+        });
+
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+                Log.i(TAG, "webview started loading: " + url);
             }
 
-            webView = (WebView)findViewById(R.id.whitelabelWebview);
-            webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+            @Override
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                super.onReceivedError(view, errorCode, description, failingUrl);
+                Log.i(TAG, "webview received error: " + description);
 
-            WebSettings webSettings = webView.getSettings();
-            webSettings.setJavaScriptEnabled(true);
-            webSettings.setDomStorageEnabled(true);
-            webSettings.setGeolocationEnabled(true);
-            webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(ASWhitelabelActivity.this);
+                alertDialog.setMessage(description);
+                alertDialog.setTitle("Error");
+                alertDialog.setCancelable(false);
+                alertDialog.setPositiveButton("Reload", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        webView.reload();
+                    }
+                });
+                alertDialog.create().show();
 
-            webView.setWebChromeClient(new WebChromeClient() {
-                public void onGeolocationPermissionsShowPrompt(
-                        String origin,
-                        GeolocationPermissions.Callback callback) {
-                    callback.invoke(origin, true, false);
-                }
-            });
+            }
 
-            webView.setWebViewClient(new WebViewClient() {
-                @Override
-                public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                    super.onPageStarted(view, url, favicon);
-                    Log.i(TAG, "webview started loading: " + url);
-                }
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                Log.i(TAG, "webview finished loading: " + url);
+            }
+        });
 
-                @Override
-                public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                    super.onReceivedError(view, errorCode, description, failingUrl);
-                    Log.i(TAG, "webview received error: " + description);
-
-                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(ASWhitelabelActivity.this);
-                    alertDialog.setMessage(description);
-                    alertDialog.setTitle("Error");
-                    alertDialog.setCancelable(false);
-                    alertDialog.setPositiveButton("Reload", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id)
-                        {
-                            webView.reload();
-                        }
-                    });
-                    alertDialog.create().show();
-
-                }
-
-                @Override
-                public void onPageFinished(WebView view, String url) {
-                    super.onPageFinished(view, url);
-                    Log.i(TAG, "webview finished loading: " + url);
-                }
-            });
-
-            webView.loadUrl(environmentURL());
-        }
-        else
-        {
-            Log.e(TAG, "ASWhitelabelActivity - Missing venueID parameter");
-            Intent extra = new Intent();
-            setResult(RESULT_CANCELED, extra);
-            finish();
-        }
+        webView.loadUrl(whiteLabelCompleteUrl());
     }
 
     @Override
@@ -140,9 +105,31 @@ public class ASWhitelabelActivity extends Activity {
         return super.onKeyDown(keyCode, event);
     }
 
+    private String whiteLabelCompleteUrl()
+    {
+        try {
+            URL url = new URL(environmentURL());
+
+            Uri.Builder builder = new Uri.Builder();
+            builder.scheme(url.getProtocol())
+                   .authority(url.getAuthority())
+                   .appendPath(this.asOptions.getVenueSlug())
+                   .appendQueryParameter("app_id", this.asOptions.getAppID())
+                   .appendQueryParameter("app_token", this.asOptions.getAppToken())
+                   .appendQueryParameter("collection", this.asOptions.getCollection())
+                   .appendQueryParameter("default_color", this.asOptions.getDefaultColor());
+
+            return builder.build().toString();
+
+        }
+        catch (MalformedURLException e) {
+            return null;
+        }
+    }
+
     private String environmentURL()
     {
-        switch (environment)
+        switch (this.asOptions.getEnvironment())
         {
             case ASEnvironmentProduction:
                 return ASWhitelabelUrl;
@@ -152,6 +139,30 @@ public class ASWhitelabelActivity extends Activity {
                 return ASWhitelabelUrlQA;
             default:
                 return ASWhitelabelUrl;
+        }
+    }
+
+    private void validateOptions()
+    {
+        if (TextUtils.isEmpty(this.asOptions.getAppID()))
+        {
+            throw new IllegalArgumentException("ASOptions appID must be non-null or empty");
+        }
+
+        if (TextUtils.isEmpty(this.asOptions.getAppToken()))
+        {
+            throw new IllegalArgumentException("ASOptions appToken must be non-null or empty");
+        }
+
+
+
+        if (TextUtils.isEmpty(this.asOptions.getVenueSlug()) && TextUtils.isEmpty(this.asOptions.getCollection()))
+        {
+            throw new IllegalArgumentException("ASOptions requires either a venueSlug or a collection");
+        }
+        else if (!TextUtils.isEmpty(this.asOptions.getVenueSlug()) && !TextUtils.isEmpty(this.asOptions.getCollection()))
+        {
+            throw new IllegalArgumentException("ASOptions requires either a venueSlug or a collection");
         }
     }
 
