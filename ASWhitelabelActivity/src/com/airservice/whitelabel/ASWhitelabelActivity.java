@@ -3,6 +3,7 @@ package com.airservice.whitelabel;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,7 +15,6 @@ import android.webkit.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 
 public class ASWhitelabelActivity extends Activity {
 
@@ -28,9 +28,9 @@ public class ASWhitelabelActivity extends Activity {
 
     private ASOptions asOptions;
 
-    public void setOptions(ASOptions options)
+    public static void setOptions(Intent intent, ASOptions options)
     {
-        this.asOptions = options;
+        intent.putExtra("AS_EXTRA_OPTIONS", options);
     }
 
     public void onCreate(Bundle savedInstanceState) {
@@ -113,11 +113,11 @@ public class ASWhitelabelActivity extends Activity {
             Uri.Builder builder = new Uri.Builder();
             builder.scheme(url.getProtocol())
                    .authority(url.getAuthority())
-                   .appendPath(this.asOptions.getVenueSlug())
+                   .appendPath(this.asOptions.getVenueAlias())
                    .appendQueryParameter("app_id", this.asOptions.getAppID())
                    .appendQueryParameter("app_token", this.asOptions.getAppToken())
-                   .appendQueryParameter("collection", this.asOptions.getCollection())
-                   .appendQueryParameter("default_color", this.asOptions.getDefaultColor());
+                   .appendQueryParameter("collection", this.asOptions.getFilter())
+                   .appendQueryParameter("default_color", this.asOptions.getBrandColor());
 
             return builder.build().toString();
 
@@ -144,6 +144,16 @@ public class ASWhitelabelActivity extends Activity {
 
     private void validateOptions()
     {
+        if (getIntent().hasExtra("AS_EXTRA_OPTIONS"))
+        {
+            this.asOptions = (ASOptions)getIntent().getSerializableExtra("AS_EXTRA_OPTIONS");
+        }
+
+        if (this.asOptions == null)
+        {
+            throw new IllegalArgumentException("Missing ASOptions");
+        }
+
         if (TextUtils.isEmpty(this.asOptions.getAppID()))
         {
             throw new IllegalArgumentException("ASOptions appID must be non-null or empty");
@@ -154,13 +164,7 @@ public class ASWhitelabelActivity extends Activity {
             throw new IllegalArgumentException("ASOptions appToken must be non-null or empty");
         }
 
-
-
-        if (TextUtils.isEmpty(this.asOptions.getVenueSlug()) && TextUtils.isEmpty(this.asOptions.getCollection()))
-        {
-            throw new IllegalArgumentException("ASOptions requires either a venueSlug or a collection");
-        }
-        else if (!TextUtils.isEmpty(this.asOptions.getVenueSlug()) && !TextUtils.isEmpty(this.asOptions.getCollection()))
+        if (TextUtils.isEmpty(this.asOptions.getVenueAlias()) && TextUtils.isEmpty(this.asOptions.getFilter()))
         {
             throw new IllegalArgumentException("ASOptions requires either a venueSlug or a collection");
         }

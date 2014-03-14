@@ -40,16 +40,14 @@ public class MainActivity extends Activity {
 
         String appID = "ABC123";
         String appToken = "DEF456";
-        String venueSlug = "hungry-hut";
+       // String venueAlias = "hungry-hut";
 
-        ASOptions options = new ASOptions(appID, appToken, venueSlug);
+//        ASOptions options = new ASOptions(appID, appToken, venueAlias);
+        ASOptions options = new ASOptions(appID, appToken);
         options.setEnvironment(ASOptions.ASEnvironment.ASEnvironmentQA);
 
-        ASWhitelabelActivity activity = new ASWhitelabelActivity();
-        activity.setOptions(options);
-
-        Intent intent = new Intent(this, activity.getClass());
-
+        Intent intent = new Intent(this, ASWhitelabelActivity.class);
+        ASWhitelabelActivity.setOptions(intent, options);
         startActivity(intent);
     }
 }

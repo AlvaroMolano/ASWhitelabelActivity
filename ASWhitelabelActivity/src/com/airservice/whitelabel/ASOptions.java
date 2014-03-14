@@ -2,11 +2,13 @@ package com.airservice.whitelabel;
 
 import android.text.TextUtils;
 
+import java.io.Serializable;
+
 /**
  * Created by daniel on 13/03/2014.
  */
 
-public class ASOptions
+public class ASOptions implements Serializable
 {
     public enum ASEnvironment
     {
@@ -16,31 +18,38 @@ public class ASOptions
     }
 
     private ASEnvironment environment;
-    private String venueSlug;
+    private String venueAlias;
     private String appID;
     private String appToken;
-    private String defaultColor;
-    private String collection;
+    private String brandColor;
+    private String filter;
 
     //default constructor
     public ASOptions() {
         setEnvironment(ASEnvironment.ASEnvironmentProduction);
     }
 
-    //venue specific constructor
-    public ASOptions(String appID, String appToken, String venueSlug) {
+    //AirService venues
+    public ASOptions(String appID, String appToken) {
         setEnvironment(ASEnvironment.ASEnvironmentProduction);
         setAppID(appID);
         setAppToken(appToken);
-        setVenueSlug(venueSlug);
+    }
+
+    //venue specific constructor
+    public ASOptions(String appID, String appToken, String venueAlias) {
+        setEnvironment(ASEnvironment.ASEnvironmentProduction);
+        setAppID(appID);
+        setAppToken(appToken);
+        setVenueAlias(venueAlias);
     }
 
     //collection grouped app constructor
-    public ASOptions(String appID, String appToken, String collection, String defaultColor) {
+    public ASOptions(String appID, String appToken, String filter, String brandColor) {
         setEnvironment(ASEnvironment.ASEnvironmentProduction);
         setAppID(appID);
         setAppToken(appToken);
-        setCollection(collection);
+        setFilter(filter);
     }
 
     public ASEnvironment getEnvironment() {
@@ -57,18 +66,18 @@ public class ASOptions
         this.environment = environment;
     }
 
-    public String getVenueSlug() {
-        return venueSlug;
+    public String getVenueAlias() {
+        return venueAlias;
     }
 
-    public void setVenueSlug(String venueSlug) {
+    public void setVenueAlias(String venueAlias) {
 
-        if (TextUtils.isEmpty(venueSlug))
+        if (TextUtils.isEmpty(venueAlias))
         {
             throw new IllegalArgumentException("ASOptions venueSlug must be non-null or empty");
         }
 
-        this.venueSlug = venueSlug;
+        this.venueAlias = venueAlias;
     }
 
     public String getAppID() {
@@ -99,25 +108,25 @@ public class ASOptions
         this.appToken = appToken;
     }
 
-    public String getDefaultColor() {
-        return defaultColor;
+    public String getBrandColor() {
+        return brandColor;
     }
 
-    public void setDefaultColor(String defaultColor) {
-        this.defaultColor = defaultColor;
+    public void setBrandColor(String brandColor) {
+        this.brandColor = brandColor;
     }
 
-    public String getCollection() {
-        return collection;
+    public String getFilter() {
+        return filter;
     }
 
-    public void setCollection(String collection) {
+    public void setFilter(String filter) {
 
-        if (TextUtils.isEmpty(collection))
+        if (TextUtils.isEmpty(filter))
         {
             throw new IllegalArgumentException("ASOptions collection must be non-null or empty");
         }
 
-        this.collection = collection;
+        this.filter = filter;
     }
 }
