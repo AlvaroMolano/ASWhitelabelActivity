@@ -113,11 +113,23 @@ public class ASWhitelabelActivity extends Activity {
             Uri.Builder builder = new Uri.Builder();
             builder.scheme(url.getProtocol())
                    .authority(url.getAuthority())
-                   .appendPath(this.asOptions.getVenueAlias())
                    .appendQueryParameter("app_id", this.asOptions.getAppID())
-                   .appendQueryParameter("app_token", this.asOptions.getAppToken())
-                   .appendQueryParameter("collection", this.asOptions.getFilter())
-                   .appendQueryParameter("default_color", this.asOptions.getBrandColor());
+                   .appendQueryParameter("app_token", this.asOptions.getAppToken());
+
+            if (!TextUtils.isEmpty(this.asOptions.getVenueAlias()))
+            {
+                builder.appendPath(this.asOptions.getVenueAlias());
+            }
+
+            if (!TextUtils.isEmpty(this.asOptions.getFilter()))
+            {
+                builder.appendQueryParameter("collection", this.asOptions.getFilter());
+            }
+
+            if (!TextUtils.isEmpty(this.asOptions.getBrandColor()))
+            {
+                builder.appendQueryParameter("default_color", this.asOptions.getBrandColor());
+            }
 
             return builder.build().toString();
 
@@ -164,9 +176,9 @@ public class ASWhitelabelActivity extends Activity {
             throw new IllegalArgumentException("ASOptions appToken must be non-null or empty");
         }
 
-        if (TextUtils.isEmpty(this.asOptions.getVenueAlias()) && TextUtils.isEmpty(this.asOptions.getFilter()))
+        if (!TextUtils.isEmpty(this.asOptions.getVenueAlias()) && !TextUtils.isEmpty(this.asOptions.getFilter()))
         {
-            throw new IllegalArgumentException("ASOptions requires either a venueSlug or a collection");
+            throw new IllegalArgumentException("ASOptions requires either a venue alias or a filter");
         }
     }
 

@@ -26,23 +26,39 @@ Remember to add the activity to your AndroidManifest.xml
                   android:label="whitelabeldemo"/>
 ```
 
-Showing ASWhiteLabelActivity within your application for your venueID = 24.
+**Note:** AppID and AppToken are required. These can be obtained from AirService
+
+
+
+Showing ASWhiteLabelActivity within your application with a single venue for your venue alias = "my-venue".
 
 ```java
+import com.airservice.whitelabel.ASOptions;
 import com.airservice.whitelabel.ASWhitelabelActivity;
 
+ASOptions options = new ASOptions(appID, appToken);
+        options.setVenueAlias("my-venue");
+
         Intent intent = new Intent(this, ASWhitelabelActivity.class);
-        ASWhitelabelActivity.populateParameters(intent, 24);
+        ASWhitelabelActivity.setOptions(intent, options);
         startActivity(intent);
 ```
 
-Or you can instead pass venueID as an extra on the intent
+Showing ASWhiteLabelActivity within your application for multiple venues within your filter group provided by AirService ie. "Example Pizza Chain" = "EX01"
 
 ```java
-intent.putExtra(ASWhitelabelActivity.AS_EXTRA_VENUE_ID, 24);
+import com.airservice.whitelabel.ASOptions;
+import com.airservice.whitelabel.ASWhitelabelActivity;
+
+		ASOptions options = new ASOptions(appID, appToken);
+        options.setFilter("EX01");
+        options.setBrandColor("444444"); //your default brand hex color
+
+        Intent intent = new Intent(this, ASWhitelabelActivity.class);
+        ASWhitelabelActivity.setOptions(intent, options);
+        startActivity(intent);
 ```
 
-**Note:** venueID is required. Either by populateParameters(Intent intent, int venueID) or putExtra.
 
 ## Author
 

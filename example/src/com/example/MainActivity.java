@@ -19,32 +19,11 @@ public class MainActivity extends Activity {
 
     public void startOrdering(View v)
     {
-        //Intent intent = new Intent(this, ASWhitelabelActivity.class);
-
-        /* Venue specific example
         String appID = "ABC123";
         String appToken = "DEF456";
-        String venueSlug = "venue-name";
 
-        ASOptions options = new ASOptions(appID, appToken, venueSlug);
-        */
-
-        /* Collection based example
-        String appID = "ABC123";
-        String appToken = "DEF456";
-        String collection = "XZ99";
-        String brandColor = "E06E6E" //hex color
-
-        ASOptions options = new ASOptions(appID, appToken, collection, brandColor);
-        */
-
-        String appID = "ABC123";
-        String appToken = "DEF456";
-       // String venueAlias = "hungry-hut";
-
-//        ASOptions options = new ASOptions(appID, appToken, venueAlias);
         ASOptions options = new ASOptions(appID, appToken);
-        options.setEnvironment(ASOptions.ASEnvironment.ASEnvironmentQA);
+        options.setVenueAlias("hungry-hut");
 
         Intent intent = new Intent(this, ASWhitelabelActivity.class);
         ASWhitelabelActivity.setOptions(intent, options);

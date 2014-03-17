@@ -24,32 +24,14 @@ public class ASOptions implements Serializable
     private String brandColor;
     private String filter;
 
-    //default constructor
     public ASOptions() {
         setEnvironment(ASEnvironment.ASEnvironmentProduction);
     }
 
-    //AirService venues
     public ASOptions(String appID, String appToken) {
         setEnvironment(ASEnvironment.ASEnvironmentProduction);
         setAppID(appID);
         setAppToken(appToken);
-    }
-
-    //venue specific constructor
-    public ASOptions(String appID, String appToken, String venueAlias) {
-        setEnvironment(ASEnvironment.ASEnvironmentProduction);
-        setAppID(appID);
-        setAppToken(appToken);
-        setVenueAlias(venueAlias);
-    }
-
-    //collection grouped app constructor
-    public ASOptions(String appID, String appToken, String filter, String brandColor) {
-        setEnvironment(ASEnvironment.ASEnvironmentProduction);
-        setAppID(appID);
-        setAppToken(appToken);
-        setFilter(filter);
     }
 
     public ASEnvironment getEnvironment() {
