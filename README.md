@@ -37,11 +37,11 @@ import com.airservice.whitelabel.ASOptions;
 import com.airservice.whitelabel.ASWhitelabelActivity;
 
 ASOptions options = new ASOptions(appID, appToken);
-        options.setVenueAlias("my-venue");
+options.setVenueAlias("my-venue");
 
-        Intent intent = new Intent(this, ASWhitelabelActivity.class);
-        ASWhitelabelActivity.setOptions(intent, options);
-        startActivity(intent);
+Intent intent = new Intent(this, ASWhitelabelActivity.class);
+ASWhitelabelActivity.setOptions(intent, options);
+startActivity(intent);
 ```
 
 Showing ASWhiteLabelActivity within your application for multiple venues within your filter group provided by AirService ie. "Example Pizza Chain" = "EX01"
@@ -50,13 +50,13 @@ Showing ASWhiteLabelActivity within your application for multiple venues within 
 import com.airservice.whitelabel.ASOptions;
 import com.airservice.whitelabel.ASWhitelabelActivity;
 
-		ASOptions options = new ASOptions(appID, appToken);
-        options.setFilter("EX01");
-        options.setBrandColor("444444"); //your default brand hex color
+ASOptions options = new ASOptions(appID, appToken);
+options.setFilter("EX01");
+options.setBrandColor("444444"); //your default brand hex color
 
-        Intent intent = new Intent(this, ASWhitelabelActivity.class);
-        ASWhitelabelActivity.setOptions(intent, options);
-        startActivity(intent);
+Intent intent = new Intent(this, ASWhitelabelActivity.class);
+ASWhitelabelActivity.setOptions(intent, options);
+startActivity(intent);
 ```
 
 

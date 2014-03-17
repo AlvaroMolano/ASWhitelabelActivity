@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
         String appToken = "DEF456";
 
         ASOptions options = new ASOptions(appID, appToken);
-        options.setVenueAlias("hungry-hut");
+        options.setVenueAlias("airservice-live"); //our demo venue
 
         Intent intent = new Intent(this, ASWhitelabelActivity.class);
         ASWhitelabelActivity.setOptions(intent, options);
