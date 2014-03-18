@@ -119,6 +119,7 @@ public class ASWhitelabelActivity extends Activity {
             if (!TextUtils.isEmpty(this.asOptions.getVenueAlias()))
             {
                 builder.appendPath(this.asOptions.getVenueAlias());
+                builder.appendQueryParameter("app_type", "venue");
             }
 
             if (!TextUtils.isEmpty(this.asOptions.getFilter()))
