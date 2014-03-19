@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
 
         ASOptions options = new ASOptions(appID, appToken);
         options.setVenueAlias("airservice-live"); //our demo venue
+        options.setLoggingEnabled(true);
 
         Intent intent = new Intent(this, ASWhitelabelActivity.class);
         ASWhitelabelActivity.setOptions(intent, options);

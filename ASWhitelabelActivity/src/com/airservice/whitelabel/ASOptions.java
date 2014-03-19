@@ -23,6 +23,7 @@ public class ASOptions implements Serializable
     private String appToken;
     private String brandColor;
     private String filter;
+    private Boolean loggingEnabled;
 
     public ASOptions() {
         setEnvironment(ASEnvironment.ASEnvironmentProduction);
@@ -30,6 +31,7 @@ public class ASOptions implements Serializable
 
     public ASOptions(String appID, String appToken) {
         setEnvironment(ASEnvironment.ASEnvironmentProduction);
+        setLoggingEnabled(false);
         setAppID(appID);
         setAppToken(appToken);
     }
@@ -110,5 +112,13 @@ public class ASOptions implements Serializable
         }
 
         this.filter = filter;
+    }
+
+    public Boolean getLoggingEnabled() {
+        return loggingEnabled;
+    }
+
+    public void setLoggingEnabled(Boolean loggingEnabled) {
+        this.loggingEnabled = loggingEnabled;
     }
 }

@@ -62,13 +62,21 @@ public class ASWhitelabelActivity extends Activity {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
-                Log.i(TAG, "webview started loading: " + url);
+
+                if (asOptions.getLoggingEnabled())
+                {
+                    Log.i(TAG, "webview started loading: " + url);
+                }
             }
 
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 super.onReceivedError(view, errorCode, description, failingUrl);
-                Log.i(TAG, "webview received error: " + description);
+
+                if (asOptions.getLoggingEnabled())
+                {
+                    Log.i(TAG, "webview received error: " + description);
+                }
 
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(ASWhitelabelActivity.this);
                 alertDialog.setMessage(description);
@@ -87,7 +95,11 @@ public class ASWhitelabelActivity extends Activity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                Log.i(TAG, "webview finished loading: " + url);
+
+                if (asOptions.getLoggingEnabled())
+                {
+                    Log.i(TAG, "webview finished loading: " + url);
+                }
             }
         });
 

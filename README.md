@@ -59,6 +59,10 @@ ASWhitelabelActivity.setOptions(intent, options);
 startActivity(intent);
 ```
 
+If you're having problems try enabling logging to debug any issues.
+```java
+options.setLoggingEnabled(true);
+```
 
 ## Author
 
