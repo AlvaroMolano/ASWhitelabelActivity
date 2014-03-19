@@ -58,7 +58,7 @@ public class ASOptions implements Serializable
 
         if (TextUtils.isEmpty(venueAlias))
         {
-            throw new IllegalArgumentException("ASOptions venueSlug must be non-null or empty");
+            throw new IllegalArgumentException("ASOptions venueAlias must be non-null or empty");
         }
 
         this.venueAlias = venueAlias;
@@ -108,7 +108,7 @@ public class ASOptions implements Serializable
 
         if (TextUtils.isEmpty(filter))
         {
-            throw new IllegalArgumentException("ASOptions collection must be non-null or empty");
+            throw new IllegalArgumentException("ASOptions filter must be non-null or empty");
         }
 
         this.filter = filter;
