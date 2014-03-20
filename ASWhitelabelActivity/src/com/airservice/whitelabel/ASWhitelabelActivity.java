@@ -188,11 +188,6 @@ public class ASWhitelabelActivity extends Activity {
         {
             throw new IllegalArgumentException("ASOptions appToken must be non-null or empty");
         }
-
-        if (!TextUtils.isEmpty(this.asOptions.getVenueAlias()) && !TextUtils.isEmpty(this.asOptions.getFilter()))
-        {
-            throw new IllegalArgumentException("ASOptions requires either a venue alias or a filter");
-        }
     }
 
 }
