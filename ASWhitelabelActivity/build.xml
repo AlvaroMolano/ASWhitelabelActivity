@@ -68,6 +68,13 @@
     -->
     <import file="custom_rules.xml" optional="true"/>
 
+    <target name="clean" description="Removes output files created by other targets.">
+        <echo message="Cleaning ASWhitelabelActivity"/>
+        <delete dir="gen" verbose="true"/>
+        <delete dir="out" verbose="true"/>
+        <delete dir="bin" verbose="true"/>
+    </target>
+
     <!-- Import the actual build file.
 
          To customize existing targets, there are two options:
