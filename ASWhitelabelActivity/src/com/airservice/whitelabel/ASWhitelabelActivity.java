@@ -109,24 +109,7 @@ public class ASWhitelabelActivity extends Activity {
             }
         });
 
-        if (isNetworkAvailable())
-        {
-            webView.loadUrl(whiteLabelCompleteUrl());
-        }
-        else
-        {
-            AlertDialog.Builder alertDialog = new AlertDialog.Builder(ASWhitelabelActivity.this);
-            alertDialog.setMessage("There appears to be a problem with your Internet connection");
-            alertDialog.setTitle("Error");
-            alertDialog.setCancelable(false);
-            alertDialog.setPositiveButton("Reload", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id)
-                {
-                    webView.loadUrl(whiteLabelCompleteUrl());
-                }
-            });
-            alertDialog.create().show();
-        }
+        loadWhitelabelPage();
     }
 
     @Override
@@ -210,6 +193,28 @@ public class ASWhitelabelActivity extends Activity {
         if (TextUtils.isEmpty(this.asOptions.getAppToken()))
         {
             throw new IllegalArgumentException("ASOptions appToken must be non-null or empty");
+        }
+    }
+
+    private void loadWhitelabelPage()
+    {
+        if (isNetworkAvailable())
+        {
+            webView.loadUrl(whiteLabelCompleteUrl());
+        }
+        else
+        {
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(ASWhitelabelActivity.this);
+            alertDialog.setMessage("There appears to be a problem with your Internet connection");
+            alertDialog.setTitle("Error");
+            alertDialog.setCancelable(false);
+            alertDialog.setPositiveButton("Reload", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id)
+                {
+                    loadWhitelabelPage();
+                }
+            });
+            alertDialog.create().show();
         }
     }
 
