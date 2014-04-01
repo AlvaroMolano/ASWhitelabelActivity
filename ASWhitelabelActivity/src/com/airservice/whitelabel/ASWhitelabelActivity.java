@@ -2,14 +2,18 @@ package com.airservice.whitelabel;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.Window;
 import android.webkit.*;
 
@@ -96,6 +100,8 @@ public class ASWhitelabelActivity extends Activity {
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
 
+                webView.setVisibility(View.VISIBLE);
+
                 if (asOptions.getLoggingEnabled())
                 {
                     Log.i(TAG, "webview finished loading: " + url);
@@ -103,7 +109,24 @@ public class ASWhitelabelActivity extends Activity {
             }
         });
 
-        webView.loadUrl(whiteLabelCompleteUrl());
+        if (isNetworkAvailable())
+        {
+            webView.loadUrl(whiteLabelCompleteUrl());
+        }
+        else
+        {
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(ASWhitelabelActivity.this);
+            alertDialog.setMessage("There appears to be a problem with your Internet connection");
+            alertDialog.setTitle("Error");
+            alertDialog.setCancelable(false);
+            alertDialog.setPositiveButton("Reload", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id)
+                {
+                    webView.loadUrl(whiteLabelCompleteUrl());
+                }
+            });
+            alertDialog.create().show();
+        }
     }
 
     @Override
@@ -188,6 +211,14 @@ public class ASWhitelabelActivity extends Activity {
         {
             throw new IllegalArgumentException("ASOptions appToken must be non-null or empty");
         }
+    }
+
+    private boolean isNetworkAvailable()
+    {
+        ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
     }
 
 }
