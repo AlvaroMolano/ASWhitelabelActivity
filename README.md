@@ -26,6 +26,15 @@ Remember to add the activity to your AndroidManifest.xml
                   android:label="whitelabeldemo"/>
 ```
 
+The following permissions are required. Specify these in your AndroidManifest.xml
+
+```
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+```
+
 **Note:** AppID and AppToken are required. These can be obtained from AirService
 
 
