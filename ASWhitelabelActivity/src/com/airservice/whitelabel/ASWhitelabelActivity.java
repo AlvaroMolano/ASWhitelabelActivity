@@ -150,6 +150,19 @@ public class ASWhitelabelActivity extends Activity {
                 builder.appendQueryParameter("default_color", this.asOptions.getBrandColor());
             }
 
+            if (!TextUtils.isEmpty(this.asOptions.getAppName()))
+            {
+                builder.appendQueryParameter("name", this.asOptions.getAppName());
+            }
+
+            if (!TextUtils.isEmpty(this.asOptions.getAppIdentifier()))
+            {
+                builder.appendQueryParameter("app_identifier", this.asOptions.getAppIdentifier());
+            }
+
+            builder.appendQueryParameter("platform", "android");
+            builder.appendQueryParameter("app_store_id", getApplicationContext().getPackageName());
+
             return builder.build().toString();
 
         }
@@ -199,7 +212,7 @@ public class ASWhitelabelActivity extends Activity {
     private void loadWhitelabelPage()
     {
         if (isNetworkAvailable())
-        {
+       {
             webView.loadUrl(whiteLabelCompleteUrl());
         }
         else
