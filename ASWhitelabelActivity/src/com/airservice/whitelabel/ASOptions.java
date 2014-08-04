@@ -23,7 +23,7 @@ public class ASOptions implements Serializable
     private String appToken;
     private String brandColor;
     private String filter;
-    private String appName;
+    private String displayName;
     private String appIdentifier;
     private Boolean loggingEnabled;
 
@@ -124,9 +124,9 @@ public class ASOptions implements Serializable
         this.loggingEnabled = loggingEnabled;
     }
 
-    public String getAppName() { return appName; }
+    public String getDisplayName() { return displayName; }
 
-    public void setAppName(String appName) { this.appName = appName; }
+    public void setDisplayName(String displayName) { this.displayName = displayName; }
 
     public String getAppIdentifier() { return appIdentifier; }
 

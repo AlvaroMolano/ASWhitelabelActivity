@@ -150,9 +150,9 @@ public class ASWhitelabelActivity extends Activity {
                 builder.appendQueryParameter("default_color", this.asOptions.getBrandColor());
             }
 
-            if (!TextUtils.isEmpty(this.asOptions.getAppName()))
+            if (!TextUtils.isEmpty(this.asOptions.getDisplayName()))
             {
-                builder.appendQueryParameter("name", this.asOptions.getAppName());
+                builder.appendQueryParameter("name", this.asOptions.getDisplayName());
             }
 
             if (!TextUtils.isEmpty(this.asOptions.getAppIdentifier()))
