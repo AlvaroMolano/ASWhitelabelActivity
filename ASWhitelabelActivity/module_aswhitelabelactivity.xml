@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_aswhitelabelactivity" default="compile.module.aswhitelabelactivity">
+  <dirname property="module.aswhitelabelactivity.basedir" file="${ant.file.module_aswhitelabelactivity}"/>
+  
+  <property name="module.jdk.home.aswhitelabelactivity" value="${jdk.home.android_api_16_platform}"/>
+  <property name="module.jdk.bin.aswhitelabelactivity" value="${jdk.bin.android_api_16_platform}"/>
+  <property name="module.jdk.classpath.aswhitelabelactivity" value="jdk.classpath.android_api_16_platform"/>
+  
+  <property name="compiler.args.aswhitelabelactivity" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
+  
+  <property name="aswhitelabelactivity.output.dir" value="${module.aswhitelabelactivity.basedir}/../../../out/production/ASWhitelabelActivity"/>
+  <property name="aswhitelabelactivity.testoutput.dir" value="${module.aswhitelabelactivity.basedir}/../../../out/test/ASWhitelabelActivity"/>
+  
+  <path id="aswhitelabelactivity.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="aswhitelabelactivity.module.production.classpath">
+    <path refid="${module.jdk.classpath.aswhitelabelactivity}"/>
+  </path>
+  
+  <path id="aswhitelabelactivity.runtime.production.module.classpath">
+    <pathelement location="${aswhitelabelactivity.output.dir}"/>
+  </path>
+  
+  <path id="aswhitelabelactivity.module.classpath">
+    <path refid="${module.jdk.classpath.aswhitelabelactivity}"/>
+    <pathelement location="${aswhitelabelactivity.output.dir}"/>
+  </path>
+  
+  <path id="aswhitelabelactivity.runtime.module.classpath">
+    <pathelement location="${aswhitelabelactivity.testoutput.dir}"/>
+    <pathelement location="${aswhitelabelactivity.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.aswhitelabelactivity">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.aswhitelabelactivity">
+    <patternset refid="excluded.from.module.aswhitelabelactivity"/>
+  </patternset>
+  
+  <path id="aswhitelabelactivity.module.sourcepath">
+    <dirset dir="${module.aswhitelabelactivity.basedir}">
+      <include name="gen"/>
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.aswhitelabelactivity" depends="compile.module.aswhitelabelactivity.production,compile.module.aswhitelabelactivity.tests" description="Compile module ASWhitelabelActivity"/>
+  
+  <target name="compile.module.aswhitelabelactivity.production" depends="register.custom.compilers" description="Compile module ASWhitelabelActivity; production classes">
+    <mkdir dir="${aswhitelabelactivity.output.dir}"/>
+    <javac2 destdir="${aswhitelabelactivity.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.aswhitelabelactivity}/javac">
+      <compilerarg line="${compiler.args.aswhitelabelactivity}"/>
+      <bootclasspath refid="aswhitelabelactivity.module.bootclasspath"/>
+      <classpath refid="aswhitelabelactivity.module.production.classpath"/>
+      <src refid="aswhitelabelactivity.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.aswhitelabelactivity"/>
+    </javac2>
+    
+    <copy todir="${aswhitelabelactivity.output.dir}">
+      <fileset dir="${module.aswhitelabelactivity.basedir}/gen">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.aswhitelabelactivity.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.aswhitelabelactivity.tests" depends="register.custom.compilers,compile.module.aswhitelabelactivity.production" description="compile module ASWhitelabelActivity; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.aswhitelabelactivity" description="cleanup module">
+    <delete dir="${aswhitelabelactivity.output.dir}"/>
+    <delete dir="${aswhitelabelactivity.testoutput.dir}"/>
+  </target>
+</project>
