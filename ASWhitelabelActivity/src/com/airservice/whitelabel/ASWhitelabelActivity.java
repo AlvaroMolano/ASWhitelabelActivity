@@ -26,7 +26,7 @@ public class ASWhitelabelActivity extends Activity {
 
     WebView webView;
 
-    private ASOptions asOptions;
+    public ASOptions asOptions;
 
     public static void setOptions(Intent intent, ASOptions options)
     {
