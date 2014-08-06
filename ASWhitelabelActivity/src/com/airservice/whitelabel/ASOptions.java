@@ -17,6 +17,15 @@ public class ASOptions implements Serializable
         ASEnvironmentProduction
     }
 
+    private final static String ASWhitelabelUrlQA = "https://qa.whitelabel.airservice.com";
+    private final static String ASWhitelabelUrlStaging = "https://staging.whitelabel.airservice.com";
+    private final static String ASWhitelabelUrl = "https://whitelabel.airservice.com";
+
+    private final static String ASAPIURLQA = "https://qa.venues.airservice.co/api/";
+    private final static String ASAPIURLStaging = "https://staging.venues.airservice.co/api/";
+    private final static String ASAPIURL = "https://venues.airservice.co/api/";
+    private final static String ASAPIVersion = "2";
+
     private ASEnvironment environment;
     private String venueAlias;
     private String appID;
@@ -131,4 +140,34 @@ public class ASOptions implements Serializable
     public String getAppIdentifier() { return appIdentifier; }
 
     public void setAppIdentifier(String appIdentifier) { this.appIdentifier = appIdentifier; }
+
+    public String environmentURL()
+    {
+        switch (this.getEnvironment())
+        {
+            case ASEnvironmentProduction:
+                return ASWhitelabelUrl;
+            case ASEnvironmentStaging:
+                return ASWhitelabelUrlStaging;
+            case ASEnvironmentQA:
+                return ASWhitelabelUrlQA;
+            default:
+                return ASWhitelabelUrl;
+        }
+    }
+
+    public String apiURL()
+    {
+        switch (this.getEnvironment())
+        {
+            case ASEnvironmentProduction:
+                return ASAPIURL + ASAPIVersion;
+            case ASEnvironmentStaging:
+                return ASAPIURLStaging + ASAPIVersion;
+            case ASEnvironmentQA:
+                return ASAPIURLQA + ASAPIVersion;
+            default:
+                return ASAPIURL + ASAPIVersion;
+        }
+    }
 }

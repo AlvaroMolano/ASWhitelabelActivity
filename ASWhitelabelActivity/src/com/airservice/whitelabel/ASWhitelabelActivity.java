@@ -22,10 +22,6 @@ import java.net.URL;
 
 public class ASWhitelabelActivity extends Activity {
 
-    private final static String ASWhitelabelUrlQA = "https://qa.whitelabel.airservice.com";
-    private final static String ASWhitelabelUrlStaging = "https://staging.whitelabel.airservice.com";
-    private final static String ASWhitelabelUrl = "https://whitelabel.airservice.com";
-
     private final static String TAG = "ASWhitelabelActivity";
 
     WebView webView;
@@ -126,7 +122,7 @@ public class ASWhitelabelActivity extends Activity {
     private String whiteLabelCompleteUrl()
     {
         try {
-            URL url = new URL(environmentURL());
+            URL url = new URL(this.asOptions.environmentURL());
 
             Uri.Builder builder = new Uri.Builder();
             builder.scheme(url.getProtocol())
@@ -168,21 +164,6 @@ public class ASWhitelabelActivity extends Activity {
         }
         catch (MalformedURLException e) {
             return null;
-        }
-    }
-
-    private String environmentURL()
-    {
-        switch (this.asOptions.getEnvironment())
-        {
-            case ASEnvironmentProduction:
-                return ASWhitelabelUrl;
-            case ASEnvironmentStaging:
-                return ASWhitelabelUrlStaging;
-            case ASEnvironmentQA:
-                return ASWhitelabelUrlQA;
-            default:
-                return ASWhitelabelUrl;
         }
     }
 
