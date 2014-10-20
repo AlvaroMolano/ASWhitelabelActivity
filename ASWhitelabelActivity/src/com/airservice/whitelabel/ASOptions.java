@@ -3,6 +3,7 @@ package com.airservice.whitelabel;
 import android.text.TextUtils;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 /**
  * Created by daniel on 13/03/2014.
@@ -35,6 +36,7 @@ public class ASOptions implements Serializable
     private String displayName;
     private String appIdentifier;
     private Boolean loggingEnabled;
+    private HashMap<String, String> customParameters;
 
     public ASOptions() {
         setEnvironment(ASEnvironment.ASEnvironmentProduction);
@@ -140,6 +142,14 @@ public class ASOptions implements Serializable
     public String getAppIdentifier() { return appIdentifier; }
 
     public void setAppIdentifier(String appIdentifier) { this.appIdentifier = appIdentifier; }
+
+    public HashMap<String, String> getCustomParameters() {
+        return customParameters;
+    }
+
+    public void setCustomParameters(HashMap<String, String> customParameters) {
+        this.customParameters = customParameters;
+    }
 
     public String environmentURL()
     {

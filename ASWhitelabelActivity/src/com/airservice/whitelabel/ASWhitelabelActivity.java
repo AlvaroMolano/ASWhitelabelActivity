@@ -24,7 +24,7 @@ public class ASWhitelabelActivity extends Activity {
 
     private final static String TAG = "ASWhitelabelActivity";
 
-    WebView webView;
+    public WebView webView;
 
     public ASOptions asOptions;
 
