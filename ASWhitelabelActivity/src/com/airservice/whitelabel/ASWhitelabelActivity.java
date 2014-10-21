@@ -19,12 +19,14 @@ import android.webkit.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Map;
 
 public class ASWhitelabelActivity extends Activity {
 
     private final static String TAG = "ASWhitelabelActivity";
 
     public WebView webView;
+    public WebViewClient webViewClient;
 
     public ASOptions asOptions;
 
@@ -58,6 +60,55 @@ public class ASWhitelabelActivity extends Activity {
             }
         });
 
+        webViewClient = new WebViewClient() {
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+
+                if (asOptions.getLoggingEnabled())
+                {
+                    Log.i(TAG, "webview started loading: " + url);
+                }
+            }
+
+            @Override
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                super.onReceivedError(view, errorCode, description, failingUrl);
+
+                if (asOptions.getLoggingEnabled())
+                {
+                    Log.i(TAG, "webview received error: " + description);
+                }
+
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(ASWhitelabelActivity.this);
+                alertDialog.setMessage(description);
+                alertDialog.setTitle("Error");
+                alertDialog.setCancelable(false);
+                alertDialog.setPositiveButton("Reload", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        webView.reload();
+                    }
+                });
+                alertDialog.create().show();
+
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+
+                webView.setVisibility(View.VISIBLE);
+
+                if (asOptions.getLoggingEnabled())
+                {
+                    Log.i(TAG, "webview finished loading: " + url);
+                }
+            }
+        };
+
+        webView.setWebViewClient(webViewClient);
+/*
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -104,6 +155,15 @@ public class ASWhitelabelActivity extends Activity {
                 }
             }
         });
+        */
+
+        //loadWhitelabelPage();
+    }
+
+    @Override
+    public void onStart() {
+
+        super.onStart();
 
         loadWhitelabelPage();
     }
@@ -158,6 +218,13 @@ public class ASWhitelabelActivity extends Activity {
 
             builder.appendQueryParameter("platform", "android");
             builder.appendQueryParameter("app_store_id", getApplicationContext().getPackageName());
+
+            if (this.asOptions.getCustomParameters() != null) {
+
+                for (Map.Entry<String, String> entry : this.asOptions.getCustomParameters().entrySet()) {
+                    builder.appendQueryParameter(entry.getKey(), entry.getValue());
+                }
+            }
 
             return builder.build().toString();
 
