@@ -108,6 +108,8 @@ public class ASWhitelabelActivity extends Activity {
         };
 
         webView.setWebViewClient(webViewClient);
+
+        loadWhitelabelPage();
 /*
         webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -165,7 +167,7 @@ public class ASWhitelabelActivity extends Activity {
 
         super.onStart();
 
-        loadWhitelabelPage();
+//        loadWhitelabelPage();
     }
 
     @Override
