@@ -23,7 +23,7 @@ import java.util.Map;
 
 public class ASWhitelabelActivity extends Activity {
 
-    private final static String TAG = "ASWhitelabelActivity";
+    public final static String TAG = "ASWhitelabelActivity";
 
     public WebView webView;
     public WebViewClient webViewClient;
@@ -110,64 +110,6 @@ public class ASWhitelabelActivity extends Activity {
         webView.setWebViewClient(webViewClient);
 
         loadWhitelabelPage();
-/*
-        webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view, url, favicon);
-
-                if (asOptions.getLoggingEnabled())
-                {
-                    Log.i(TAG, "webview started loading: " + url);
-                }
-            }
-
-            @Override
-            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                super.onReceivedError(view, errorCode, description, failingUrl);
-
-                if (asOptions.getLoggingEnabled())
-                {
-                    Log.i(TAG, "webview received error: " + description);
-                }
-
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(ASWhitelabelActivity.this);
-                alertDialog.setMessage(description);
-                alertDialog.setTitle("Error");
-                alertDialog.setCancelable(false);
-                alertDialog.setPositiveButton("Reload", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id)
-                    {
-                        webView.reload();
-                    }
-                });
-                alertDialog.create().show();
-
-            }
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-
-                webView.setVisibility(View.VISIBLE);
-
-                if (asOptions.getLoggingEnabled())
-                {
-                    Log.i(TAG, "webview finished loading: " + url);
-                }
-            }
-        });
-        */
-
-        //loadWhitelabelPage();
-    }
-
-    @Override
-    public void onStart() {
-
-        super.onStart();
-
-//        loadWhitelabelPage();
     }
 
     @Override
